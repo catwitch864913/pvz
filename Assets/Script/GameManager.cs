@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public GameObject bornParent;
     public GameObject zombiePrefab;
     public float craeteZombieTi;
+    private int zOrderIndex = 0;
     private void Start()
     {
         instance = this;
@@ -41,7 +42,7 @@ public class GameManager : MonoBehaviour
         int index = Random.Range(0, 5);
         Transform zombiePos = bornParent.transform.Find("born" + index.ToString());
         zombie.transform.SetParent(zombiePos, false);
-        
+        zombie.GetComponent<SpriteRenderer>().sortingOrder = zOrderIndex++;
         //zombie.transform.parent = zombiePos.transform;
         StartCoroutine(DalayCreateZombie());
     }

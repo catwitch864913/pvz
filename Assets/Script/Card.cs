@@ -84,7 +84,10 @@ public class Card : MonoBehaviour
                 curGameObject.transform.localPosition = Vector3.zero;
                 //重製默認值,生成結束
                 GameManager.instance.ChangSunNum(-useSun);
+                curGameObject.GetComponent<Plant>().SetPlantStart();
                 curGameObject = null;
+                //重製計時器
+                timer = 0;
                 break;
             }
         }

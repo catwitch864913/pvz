@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SunFlower : MonoBehaviour
+public class SunFlower : Plant
 {
     public GameObject sunPrefab;
-    private Animator animator;
     public float readyTime;
     private float timer;
     private int SunNum;
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         animator = GetComponent<Animator>();
         timer = 0;
     }

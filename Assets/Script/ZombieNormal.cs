@@ -56,7 +56,7 @@ public class ZombieNormal : MonoBehaviour
             animator.SetBool("Walk", false);
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         if (isDie)
             return;
@@ -67,7 +67,7 @@ public class ZombieNormal : MonoBehaviour
             {
                 damageTimer = 0;
                 //todo:對植物造成傷害
-                PeaShooter peaShooter = collision.GetComponent<PeaShooter>();
+                Plant peaShooter = collision.GetComponent<Plant>();
                 float newHealth = peaShooter.ChangeHealth(-damage);
                 if (newHealth <= 0)
                 {
